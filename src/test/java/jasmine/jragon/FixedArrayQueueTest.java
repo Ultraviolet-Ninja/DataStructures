@@ -2,6 +2,8 @@ package jasmine.jragon;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.stream.IntStream;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class FixedArrayQueueTest {
@@ -40,10 +42,10 @@ public class FixedArrayQueueTest {
         assertFalse(testList.add(testBuffer[4]));
         assertTrue(testList.add(testBuffer[5]));
 
-        for (int i = 0; i < testList.cap(); i++){
+        IntStream.range(0, testList.cap()).forEach(i -> {
             testList.removeFromHead(1);
             assertEquals(testList.cap() - i - 1, testList.size());
-        }
+        });
     }
 
 }

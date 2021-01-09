@@ -31,6 +31,11 @@ public class ListGraph<E> extends AbstractListGraph<E> implements UnweightedEdge
         return true;
     }
 
+    @Override
+    public LinkedList<E> shortestPath(E start, E end) {
+        return null;
+    }
+
     private boolean isNotDuplicate(E vertex, E edge){
         return !list.get(vertex).contains(edge);
     }
@@ -38,12 +43,19 @@ public class ListGraph<E> extends AbstractListGraph<E> implements UnweightedEdge
     @Override
     public LinkedList<E> removeVertex(E vertex){
         if (!list.containsKey(vertex)) return null;
+        if (biDirectional) removeReferences(vertex, list.get(vertex));
         return list.remove(vertex);
+    }
+
+    private void removeReferences(E vertex, LinkedList<E> refList){
+        for (E reference : refList)
+            list.get(reference).remove(vertex);
     }
 
     @Override
     public boolean removeEdge(E vertex, E edge) {
-        if (list.containsKey(vertex)) return true;
+        if (list.containsKey(vertex))
+            return list.get(vertex).remove(edge);
         return false;
     }
 }
