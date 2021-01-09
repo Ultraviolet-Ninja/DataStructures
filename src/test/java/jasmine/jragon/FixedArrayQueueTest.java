@@ -42,7 +42,7 @@ public class FixedArrayQueueTest {
 
         for (int i = 0; i < testList.cap(); i++){
             testList.removeFromHead(1);
-            assertEquals(testList.cap() - i, testList.size());
+            assertEquals(testList.cap() - i - 1, testList.size());
         }
     }
 
