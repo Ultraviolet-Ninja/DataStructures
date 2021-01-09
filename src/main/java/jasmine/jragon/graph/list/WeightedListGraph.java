@@ -25,6 +25,11 @@ public class WeightedListGraph<E> extends AbstractListGraph<E> implements Weight
     }
 
     @Override
+    public LinkedList<E> dijkstraAlgo(E start, E end) {
+        return null;
+    }
+
+    @Override
     public LinkedList<AbstractMap.SimpleEntry<E, Integer>> removeVertex(E vertex) {
         if (!list.containsKey(vertex)) return null;
         return list.remove(vertex);
