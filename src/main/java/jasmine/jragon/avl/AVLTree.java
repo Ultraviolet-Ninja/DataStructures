@@ -1,4 +1,4 @@
-package bomb.tools.data.structures.avl;
+package jasmine.jragon.avl;
 
 import java.util.List;
 
@@ -112,7 +112,10 @@ public class AVLTree<E extends Comparable<E>> {
         stem.balanceFactor = tiltScale(stem);
         if (notNull(stem.left)) stem.left = rescale(stem.left);
         if (notNull(stem.right)) stem.right = rescale(stem.right);
-        if (Math.abs(stem.balanceFactor) > 1) stem = algorithm(stem);
+        if (Math.abs(stem.balanceFactor) > 1) {
+            stem = algorithm(stem);
+            stem = rescale(stem);
+        }
 
         return stem;
     }
@@ -132,11 +135,11 @@ public class AVLTree<E extends Comparable<E>> {
      * @return
      */
     private Node<E> algorithm(Node<E> stem){
-        if (!notNull(stem.left) && notNull(stem.right)){
+        if (stem.balanceFactor > 1){
             stem = (stem.right.balanceFactor > 0)?
                     doubleRight(stem): //Stem BF is 2 and Stem.right is positive - RR Tree
                     rightLeft(stem); //Stem BF is 2 and Stem.right is negative - RL Tree
-        } else if (notNull(stem.left) && !notNull(stem.right)){
+        } else if (stem.balanceFactor < -1){
             stem = (stem.left.balanceFactor < 0)?
                     doubleLeft(stem): //Stem BF is 2 and Stem.left is negative - LL Tree
                     leftRight(stem); //Stem BF is 2 and Stem.left is positive - LR Tree

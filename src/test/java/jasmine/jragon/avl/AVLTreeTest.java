@@ -1,4 +1,4 @@
-package test.java.jasmine.jragon.avl;
+package jasmine.jragon.avl;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -28,6 +28,7 @@ public class AVLTreeTest {
             tree.addNode((double) i, String.valueOf(i));
             System.out.println(tree.getTotalHeight());
         }
+        tree.traverse();
     }
 
     private int logBaseTwo(int in){
