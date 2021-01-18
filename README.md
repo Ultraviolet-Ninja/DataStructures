@@ -12,5 +12,5 @@ This is all the Data Structures that I've made to solve a problem or understand 
 - Fixed Array Queue
 - Fixed Ring
 - Graphs (Both List and Matrix)
-- Map Stack
+- [Map Stack](markdown/mapstack.md)
 - Queue (ChainList)
