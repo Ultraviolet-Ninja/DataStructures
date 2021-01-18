@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.Map;
 
 /**
- * The HashStack is a HashMap with a LinkedList as a Stack that controls what elements can be accessed,
+ * The MapStack is a HashMap with a LinkedList as a Stack that controls what elements can be accessed,
  * altered, or popped off the HashMap. This data structure is based on the following criteria:
  * • Having (key, value) pairs
  * • Being able to access the values easily

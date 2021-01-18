@@ -47,5 +47,4 @@ public class FixedArrayQueueTest {
             assertEquals(testList.cap() - i - 1, testList.size());
         });
     }
-
 }
