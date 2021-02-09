@@ -1,9 +1,18 @@
 plugins {
     id 'java'
+    id 'jacoco'
 }
 
 group 'com.jasmine.jragon'
 version '1.0-SNAPSHOT'
+
+compileJava{
+    options.encoding("UTF-8")
+}
+
+compileTestJava{
+    options.encoding("UTF-8")
+}
 
 repositories {
     mavenCentral()
@@ -17,4 +26,11 @@ dependencies {
 test {
     maxParallelForks(2)
     useJUnitPlatform()
+    finalizedBy(jacocoTestReport)
+}
+
+jacocoTestReport{
+    reports{
+        xml.enabled(true)
+    }
 }
