@@ -9,8 +9,8 @@ This is all the Data Structures that I've made to solve a problem or understand 
 
 ### So far
 - AVL Tree
-- Fixed Array Queue
-- Fixed Ring
+- Fixed Size Array Queue
+- Read Only Ring
 - Graphs (Both List and Matrix)
 - [Map Stack](markdown/mapstack.md)
 - Queue (ChainList)
