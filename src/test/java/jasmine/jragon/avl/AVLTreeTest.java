@@ -1,31 +1,22 @@
 package jasmine.jragon.avl;
-
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
 
 import java.util.ArrayList;
-
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class AVLTreeTest {
     private AVLTree<Double> tree;
 
-    @BeforeEach
-    void setup(){
+    @BeforeMethod
+    public void setUp(){
         tree = new AVLTree<>();
     }
 
-    @Test
-    void exceptionTesting(){
-        assertThrows(UnbalancedEntriesException.class,
-                () -> tree = new AVLTree<>(setupList(10), setupStringArray(15)));
-        assertThrows(UnbalancedEntriesException.class,
-                () -> tree = new AVLTree<>(setupArray(10), setupStringArray(15)));
-        assertDoesNotThrow(() -> tree = new AVLTree<>(setupList(5), setupStringArray(5)));
-        assertDoesNotThrow(() -> tree = new AVLTree<>(setupArray(5), setupStringArray(5)));
+    @Test(expectedExceptions = UnbalancedEntriesException.class)
+    public void exceptionTest() throws UnbalancedEntriesException {
+        tree = new AVLTree<>(setupList(10), setupStringArray(15));
+        tree = new AVLTree<>(setupArray(11), setupStringArray(14));
     }
 
     private Double[] setupArray(int max){
@@ -47,27 +38,5 @@ public class AVLTreeTest {
         for (int i = 0; i < max; i++)
             output[i] = String.valueOf(i);
         return output;
-    }
-
-    @Test
-    void nullTest(){
-        tree.addNode(824.4, "");
-        assertNull(tree.dig(504.2));
-        assertNull(tree.dig(824.3));
-        assertEquals("", tree.dig(824.4));
-    }
-
-    @Test
-    void heightTest(){
-        for (int i = 0; i < 1000; i++){
-            tree.addNode((double) i, String.valueOf(i));
-            System.out.println(tree.getTotalHeight());
-        }
-        tree.traverse();
-    }
-
-    private int logBaseTwo(int in){
-        double result = Math.log(in) / Math.log(2);
-        return result % 1 == 0 ? -1 : (int) result;
     }
 }

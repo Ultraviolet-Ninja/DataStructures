@@ -6,7 +6,7 @@ import java.util.stream.IntStream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class FixedArrayQueueTest {
+public class OldFixedArrayQueueTest {
     private FixedArrayQueue<String> testList;
     private final String[] testBuffer = {"", "Purple", "Lexicon", "Ho Chi Minh City", "Delta Echo November", "List"};
 

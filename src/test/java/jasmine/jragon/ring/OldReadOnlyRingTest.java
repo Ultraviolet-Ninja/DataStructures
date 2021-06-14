@@ -10,7 +10,7 @@ import java.util.stream.IntStream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class ReadOnlyRingTest {
+public class OldReadOnlyRingTest {
     private ReadOnlyRing<Integer> ring;
 
     private final Integer[] intArray = new Integer[]{1, 248, 20, 823, 127, 234, 495};

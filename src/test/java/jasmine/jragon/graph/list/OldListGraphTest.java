@@ -8,16 +8,16 @@ import java.util.Arrays;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class ListGraphTest {
+public class OldListGraphTest {
     private final String[] testArray = {"Check check", "Again", "Thrice Cream", "The Forth",
             "The Fifth", "Incomplete", "Lucky No.", "Sideways Infinity"};
-    private ListGraph<String> directedGraph, undirectedGraph;
+    private OldListGraph<String> directedGraph, undirectedGraph;
 
 
     @BeforeEach
     void setUp() {
-        directedGraph = new ListGraph<>(false);
-        undirectedGraph= new ListGraph<>(true);
+        directedGraph = new OldListGraph<>(false);
+        undirectedGraph= new OldListGraph<>(true);
     }
 
     @Test
