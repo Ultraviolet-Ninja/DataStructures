@@ -11,7 +11,7 @@ This is all the Data Structures that I've made to solve a problem or understand 
 - AVL Tree
 - Buffered Queue
 - Read Only Ring
-- Graphs (Both List and Matrix)
+- Graphs
 - [Map Stack](markdown/mapstack.md)
 - Queue (ChainList)
 - Trie
