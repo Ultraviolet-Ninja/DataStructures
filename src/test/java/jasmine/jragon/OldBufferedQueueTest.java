@@ -6,13 +6,13 @@ import java.util.stream.IntStream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class OldFixedArrayQueueTest {
-    private FixedArrayQueue<String> testList;
+public class OldBufferedQueueTest {
+    private BufferedQueue<String> testList;
     private final String[] testBuffer = {"", "Purple", "Lexicon", "Ho Chi Minh City", "Delta Echo November", "List"};
 
     @Test
     void fullListTest(){
-        testList = new FixedArrayQueue<>(testBuffer.length);
+        testList = new BufferedQueue<>(testBuffer.length);
         assertFalse(testList.add(testBuffer[0]));
         assertFalse(testList.add(testBuffer[1]));
         assertFalse(testList.add(testBuffer[2]));
@@ -23,7 +23,7 @@ public class OldFixedArrayQueueTest {
 
     @Test
     void partialListTest(){
-        testList = new FixedArrayQueue<>(testBuffer.length - 2);
+        testList = new BufferedQueue<>(testBuffer.length - 2);
         assertFalse(testList.add(testBuffer[0]));
         assertFalse(testList.add(testBuffer[1]));
         assertFalse(testList.add(testBuffer[2]));
@@ -34,7 +34,7 @@ public class OldFixedArrayQueueTest {
 
     @Test
     void removeFromHead(){
-        testList = new FixedArrayQueue<>(testBuffer.length);
+        testList = new BufferedQueue<>(testBuffer.length);
         assertFalse(testList.add(testBuffer[0]));
         assertFalse(testList.add(testBuffer[1]));
         assertFalse(testList.add(testBuffer[2]));
@@ -42,9 +42,9 @@ public class OldFixedArrayQueueTest {
         assertFalse(testList.add(testBuffer[4]));
         assertTrue(testList.add(testBuffer[5]));
 
-        IntStream.range(0, testList.cap()).forEach(i -> {
+        IntStream.range(0, testList.getCapacity()).forEach(i -> {
             testList.removeFromHead(1);
-            assertEquals(testList.cap() - i - 1, testList.size());
+            assertEquals(testList.getCapacity() - i - 1, testList.size());
         });
     }
 }

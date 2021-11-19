@@ -11,9 +11,3 @@ current path doesn't end in an exit, then we can pop off the positions and conti
 ### Backing Structure(s)
 - LinkedList - Contains Keys
 - HashMap - Contains Keys and Values
-
-### Time Analysis
-[NEED TO WRITE]
-
-### Space Analysis 
-[NEED TO WRITE]
